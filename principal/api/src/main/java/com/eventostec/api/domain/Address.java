@@ -1,7 +1,7 @@
-package com.eventostec.api.domain.address;
+package com.eventostec.api.domain;
 
 import java.util.*;
-import com.eventostec.api.domain.event.*;
+import com.eventostec.api.domain.*;
 
 import jakarta.persistence.*;
 
@@ -13,8 +13,10 @@ public class Address {
 	@GeneratedValue
 	private UUID id;
 	
+	@Column(nullable = false, length = 100)
 	private String city;
 	
+	@Column(nullable = false, length = 100)
 	private String uf;
 	
 	@ManyToOne

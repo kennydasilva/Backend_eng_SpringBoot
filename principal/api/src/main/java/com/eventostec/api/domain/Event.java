@@ -1,6 +1,7 @@
-package com.eventostec.api.domain.event;
+package com.eventostec.api.domain;
 
 
+import java.time.LocalDateTime;
 import java.util.*;
 
 import jakarta.persistence.*;
@@ -18,11 +19,22 @@ public class Event {
 	@GeneratedValue
 	private UUID id;
 	
+	@Column(nullable = false, length = 100)
 	private String title;
+	
+	@Column(nullable = false, length = 100)
 	private String description;
+	
+	 @Column(nullable = false, length = 100)
 	private String imgUrl;
+	 
+	@Column(nullable = false, length = 100)
 	private String eventoUrl;
+	 
+	@Column(nullable = false)
 	private Boolean remote;
-	private Date data;
+	 
+	@Column(nullable = false)
+	private LocalDateTime data;
 	
 }

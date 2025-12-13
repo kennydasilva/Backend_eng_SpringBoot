@@ -1,8 +1,8 @@
-package com.eventostec.api.domain.coupon;
+package com.eventostec.api.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.*;
-import com.eventostec.api.domain.event.*;
+import com.eventostec.api.domain.*;
 
 @Entity
 @Table(name="coupon")
