@@ -30,6 +30,6 @@ public class Coupon {
 	@ManyToOne
 	@JoinColumn(name="event_id")
 	private Event event;
-	
+
 
 }

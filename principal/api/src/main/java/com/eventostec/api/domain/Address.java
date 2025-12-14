@@ -23,4 +23,5 @@ public class Address {
 	@JoinColumn(name="event_id")
 	private Event event;
 
+
 }

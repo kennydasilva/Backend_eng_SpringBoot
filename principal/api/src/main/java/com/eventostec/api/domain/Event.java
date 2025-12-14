@@ -2,10 +2,12 @@ package com.eventostec.api.domain;
 
 
 import java.time.LocalDateTime;
+
 import java.util.*;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 
 @Table(name="event")
 @Entity
@@ -35,6 +37,9 @@ public class Event {
 	private Boolean remote;
 	 
 	@Column(nullable = false)
-	private LocalDateTime data;
+	private LocalDateTime date;
+
+
+	
 	
 }
