@@ -2,6 +2,7 @@ package com.eventostec.api.controller;
 
 import com.eventostec.api.domain.Coupon;
 import com.eventostec.api.dto.CouponRequestDTO;
+import com.eventostec.api.dto.EventResponseDTO;
 import com.eventostec.api.service.CouponService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,4 +24,7 @@ public class CouponController {
         return ResponseEntity.ok(coupon);
 
     }
+
+
+
 }
