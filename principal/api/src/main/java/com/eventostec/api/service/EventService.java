@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -81,10 +82,10 @@ public class EventService {
 		return convFile;
 	}
 
-	public List<EventResponseDTO> getEvents(int page, int size) {
+	public List<EventResponseDTO> getUpcomingEvents(int page, int size) {
 
 		Pageable pageable= PageRequest.of(page,size);
-		Page<Event> eventPage=this.eventRepository.findAll(pageable);
+		Page<Event> eventPage=this.eventRepository.findUpcomingEvents(LocalDateTime.now(),pageable);
 		return eventPage.map(event -> new EventResponseDTO(
 				event.getId(),
 				event.getTitle(),
