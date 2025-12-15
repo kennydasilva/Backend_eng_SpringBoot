@@ -16,6 +16,25 @@ import com.eventostec.api.domain.*;
 public interface EventRepository extends JpaRepository<Event, UUID>{
 
 
-    @Query("SELECT e FROM Event e WHERE e.date>=:currentDate")
+    @Query("SELECT e FROM Event e LEFT JOIN FETCH e.address a WHERE e.date>=:currentDate")
     public Page<Event> findUpcomingEvents(@Param("currentDate") LocalDateTime currentDate, Pageable pageable);
+
+    @Query("""
+        SELECT e
+        FROM Event e
+        LEFT JOIN e.address a
+        WHERE (:title IS NULL OR e.title LIKE CONCAT('%', :title, '%'))
+          AND (:city IS NULL OR a.city LIKE CONCAT('%', :city, '%'))
+          AND (:uf IS NULL OR a.uf LIKE CONCAT('%', :uf, '%'))
+          AND (:startDate IS NULL OR e.date >= :startDate)
+          AND (:endDate IS NULL OR e.date <= :endDate)
+        """)
+    Page<Event> findFilteredEvents(
+            @Param("title") String title,
+            @Param("city") String city,
+            @Param("uf") String uf,
+            @Param("startDate") LocalDateTime startDate,
+            @Param("endDate") LocalDateTime endDate,
+            Pageable pageable
+    );
 }
