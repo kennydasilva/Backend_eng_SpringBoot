@@ -21,16 +21,16 @@ public class Event {
 	@GeneratedValue
 	private UUID id;
 	
-	@Column(nullable = false, length = 100)
+	@Column(nullable = false, length = 200)
 	private String title;
 	
-	@Column(nullable = false, length = 100)
+	@Column(nullable = false, length = 200)
 	private String description;
 	
-	 @Column(nullable = false, length = 100)
+	 @Column(nullable = false, length = 200)
 	private String imgUrl;
 	 
-	@Column(nullable = false, length = 100)
+	@Column(nullable = false, length = 500)
 	private String eventoUrl;
 	 
 	@Column(nullable = false)
