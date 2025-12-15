@@ -39,6 +39,9 @@ public class Event {
 	@Column(nullable = false)
 	private LocalDateTime date;
 
+	@OneToOne(mappedBy = "event", cascade =CascadeType.ALL)
+	private Address address;
+
 
 	
 	
