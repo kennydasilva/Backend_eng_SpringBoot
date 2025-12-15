@@ -1,5 +1,7 @@
 package com.eventostec.api.dto;
 
-public record CouponRequestDTO() {
+import java.time.LocalDateTime;
+
+public record CouponRequestDTO(String code, Integer discount, LocalDateTime valid) {
 
 }
